@@ -10,12 +10,12 @@ namespace DemoTaller.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GeocodingSensor : ContentPage
     {
-        public ObservableCollection<ItemB> Calculos { get; }
+        public ObservableCollection<ItemB> Log { get; }
 
         public GeocodingSensor()
         {
             InitializeComponent();
-            Calculos = new ObservableCollection<ItemB>();
+            Log = new ObservableCollection<ItemB>();
         }
 
         public void cleanInputs()
@@ -33,9 +33,10 @@ namespace DemoTaller.Views
 
         private async void GeocodingButton_Clicked(object sender, EventArgs e)
         {
+            string stateText = "Error";
+            string address = txtAddress.Text;
             try
             {
-                string address = txtAddress.Text;
                 if (!string.IsNullOrEmpty(address))
                 {
                     var locations = await Geocoding.GetLocationsAsync(address);
@@ -57,12 +58,14 @@ namespace DemoTaller.Views
                             LabelPostalcode.Text = "PostalCode:" + placemark.PostalCode;
                             LabelThoroughfare.Text = "Thoroughfare:" + placemark.Thoroughfare;
                             LabelSubThoroughfare.Text = "SubThoroughfare:" + placemark.SubThoroughfare;
+                            stateText = "Success";
                         }
                     }
                 } else
                 {
                     cleanInputs();
-                    await DisplayAlert("Faild", "Write a location", "OK");
+                    await DisplayAlert("Warning!", "Write a location", "OK");
+                    address = "Empty Input";
                 }
 
             }
@@ -70,25 +73,35 @@ namespace DemoTaller.Views
             {
                 cleanInputs();
                 await DisplayAlert("Warning!", fnsEx.Message, "OK");
+                address = fnsEx.Message;
             }
             catch (PermissionException pEx)
             {
                 cleanInputs();
                 await DisplayAlert("Warning!", pEx.Message, "OK");
+                address = pEx.Message;
             }
             catch (Exception ex)
             {
                 cleanInputs();
                 await DisplayAlert("Warning!", ex.Message, "OK");
+                address = ex.Message;
             }
+
+            var item = new ItemB
+            {
+                Search = address,
+                State = stateText,
+            };
+            Log.Insert(0, item);
+            ListViewCheck.ItemsSource = Log;
         }
     }
 
 
     public class ItemB
     {
-        public string DateInfo { get; set; }
-        public string NetworkAccess { get; set; }
-        public string ConnectionProfiles { get; set; }
+        public string Search { get; set; }
+        public string State { get; set; }
     }
 }

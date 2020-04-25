@@ -38,9 +38,9 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Taller Componentes" FontAttributes="Bold" FontSize="22" />
+                                <Span Text="Parcial Componentes" FontAttributes="Bold" FontSize="22" />
                                 <Span Text=" " />
-                                <Span Text="1.0" ForegroundColor="{StaticResource LightTextColor}" />
+                                <Span Text="Corte 2" ForegroundColor="{StaticResource LightTextColor}" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>
@@ -49,13 +49,14 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Este taller es para desarrollar una App" />
+                                <Span Text="Este parcial es para desarrollar una App" />
                                 <Span Text=" " />
                                 <Span Text="que permita la emulacion de los sensores" />
                                 <Span Text=" " />
-                                <Span Text="o utilidades asignadas." />
+                                <Span Text="de FlashLight y Geocoding" />
                                 <Span Text=" " />
-                                <Span Text="Estudiante 1; Estudiante 2; Estudiante 3" FontAttributes="Bold" />
+                                <Span Text="Desarrollado por: " />
+                                <Span Text="Oscar Cantillo Menco" FontAttributes="Bold" />
                                 <Span Text="." />
                             </FormattedString.Spans>
                         </FormattedString>

@@ -20,6 +20,26 @@
             <Label HorizontalTextAlignment="Center" x:Name="LabelSublocality"></Label>
             <Label HorizontalTextAlignment="Center" x:Name="LabelSubThoroughfare"></Label>
             <Label HorizontalTextAlignment="Center" x:Name="LabelThoroughfare"></Label>
+            <ListView x:Name="ListViewCheck"
+                  HasUnevenRows="True" 
+                  ItemsSource="{Binding Log}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Search}"
+                                   d:Text="{Binding .}"
+                                   TextColor="Green"
+                                   FontSize="18" />
+                                <Label Text="{Binding State}"
+                                   d:Text="{Binding .}"
+                                   TextColor="Blue"
+                                   FontSize="16" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </StackLayout>
 </ContentPage>
