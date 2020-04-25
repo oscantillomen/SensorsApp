@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DemoTaller.Views.GeocodingSensor"
+             Title="Check Geocoding">
+    <StackLayout>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+            <Label Margin="0,0,0,10" Text="Geocoding" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" ></Label>
+            <SearchBar x:Name="txtAddress" Placeholder="Search Location..."></SearchBar>
+            <Button x:Name="GeocodingButton" Text="Get Location" Clicked="GeocodingButton_Clicked"/>
+            <Label HorizontalTextAlignment="Center" x:Name="LabelAdminArea"></Label>
+            <Label HorizontalTextAlignment="Center" x:Name="LabelCountryCode"></Label>
+            <Label HorizontalTextAlignment="Center" x:Name="LabelCountryName"></Label>
+            <Label HorizontalTextAlignment="Center" x:Name="LabelLocality"></Label>
+            <Label HorizontalTextAlignment="Center" x:Name="LabelPostalcode"></Label>
+            <Label HorizontalTextAlignment="Center" x:Name="LabelSubAdminArea"></Label>
+            <Label HorizontalTextAlignment="Center" x:Name="LabelSublocality"></Label>
+            <Label HorizontalTextAlignment="Center" x:Name="LabelSubThoroughfare"></Label>
+            <Label HorizontalTextAlignment="Center" x:Name="LabelThoroughfare"></Label>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
